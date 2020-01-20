@@ -16,7 +16,7 @@ Note that Kaspad will connect to the Kaspa Testnet using the current configurati
 ### Cloning The GitHub Repository
 Use git to clone the quick-start repository:
 ```
-$ git clone --recurse-submodules https://github.com/meanjs/mean.git meanjs
+$ git clone --recurse-submodules https://github.com/kaspanet/quick-start.git
 ```
 ### Run
 (build docker images and run)
