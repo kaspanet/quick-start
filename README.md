@@ -10,7 +10,6 @@ Follow the instructions below to create and run docker instances of the followin
 Note that Kaspad will connect to the Kaspa Testnet using the current configuration.
 ## Getting started
 ### Prerequisites
-- Git
 - Docker
 - Docker Compose
 ### Cloning The GitHub Repository
