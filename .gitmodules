@@ -1,0 +1,6 @@
+[submodule "kaspad"]
+	path = kaspad
+	url = git@github.com:kaspanet/kaspad.git
+[submodule "kasparov"]
+	path = kasparov
+	url = git@github.com:kaspanet/kasparov.git

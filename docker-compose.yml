@@ -1,0 +1,106 @@
+version: '3.7'
+services:
+  kaspad:
+    image: 'kaspad'
+    volumes:
+      - './data:/root/.kaspad'
+      - './data/kaspad/:/root/data'
+    command:
+      - '/app/kaspad'
+      - '--devnet'
+      - '--addrindex'
+      - '--acceptanceindex'
+      - '--miningaddr=kaspatest:qrgufg4qzfqacfzrf6xvx46aqedr5nke3q7raa09nc'
+      - '--rpcuser=user'
+      - '--rpcpass=pass'
+      - '--rpclisten=kaspad:16610'
+      - '--rpccert=/root/.kaspad/rpc.cert'
+      - '--rpckey=/root/.kaspad/rpc.key'
+      - '--datadir=/root/data'
+      - '--debuglevel=debug'
+    ports:
+      - '16610:16610'
+    user: root
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'kasparov'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+
+  rabbitmq:
+    image: rabbitmq:3.8
+    volumes:
+      - './rabbitmq:/etc/rabbitmq'
+    ports:
+      - '15672:15672'
+      - '1883:1883'
+      - '15675:15675'
+    user: root
+    restart: always
+
+  kasparov_migrate:
+    image: 'kasparovsyncd'
+    command:
+      - '/app/kasparov-syncd'
+      - '--rpcserver=kaspad:16610'
+      - '--rpcuser=user'
+      - '--rpcpass=pass'
+      - '--notls'
+      - '--migrate'
+      - '--notls'
+      - '--dbaddress=mysql:3306'
+      - '--dbname=kasparov'
+      - '--dbuser=user'
+      - '--dbpass=password'
+      - '--devnet'
+    user: root
+
+  kasparovd:
+    image: 'kasparovd'
+    volumes:
+      - './rpc:/root/.kaspad'
+    command:
+      - '/app/kasparovd'
+      - '--rpcserver=kaspad:16610'
+      - '--rpcuser=user'
+      - '--rpcpass=pass'
+      - '--rpccert=/root/.kaspad/rpc.cert'
+      - '--dbaddress=mysql:3306'
+      - '--dbname=kasparov'
+      - '--dbuser=user'
+      - '--dbpass=password'
+      - '--devnet'
+      - '-d=debug'
+    ports:
+      - '8080:8080'
+    user: root
+    restart: always
+
+  kasparovsyncd:
+    image: 'kasparovsyncd'
+    volumes:
+      - './rpc:/root/.kaspad'
+    command:
+      - '/app/kasparov-syncd'
+      - '--rpcserver=kaspad:16610'
+      - '--rpcuser=user'
+      - '--rpcpass=pass'
+      - '--rpccert=/root/.kaspad/rpc.cert'
+      - '--dbaddress=mysql:3306'
+      - '--dbname=kasparov'
+      - '--dbuser=user'
+      - '--dbpass=password'
+      - '--mqttaddress=rabbitmq:1883'
+      - '--mqttuser=user'
+      - '--mqttpass=pass'
+      - '--devnet'
+      - '-d=debug'
+    user: root
+    restart: always

@@ -1,0 +1,23 @@
+2020-01-20 13:27:53.685 [INF] KASD: Version 0.1.0
+2020-01-20 13:27:53.686 [INF] KASD: Loading block database from '/root/data/devnet/blocks_ffldb'
+2020-01-20 13:27:53.733 [INF] KASD: Block database loaded
+2020-01-20 13:27:53.744 [INF] INDX: Transaction index enabled because it is required by the address index
+2020-01-20 13:27:53.745 [INF] INDX: Address index is enabled
+2020-01-20 13:27:53.746 [INF] INDX: acceptance index is enabled
+2020-01-20 13:27:53.755 [DBG] BDAG: Accepted block 00005d2b0ceebe59530cf886c7f076e2cbf3ea29ff19bc1465511add095c5917
+2020-01-20 13:27:53.756 [INF] BDAG: DAG state (chain height 0, hash 00005d2b0ceebe59530cf886c7f076e2cbf3ea29ff19bc1465511add095c5917)
+2020-01-20 13:27:53.779 [INF] RPCS: RPC server listening on 192.168.160.3:16610
+2020-01-20 13:27:53.780 [INF] ADXR: Loaded 0 addresses from file '/root/data/devnet/peers.json'
+2020-01-20 13:27:53.780 [INF] CMGR: Server listening on 0.0.0.0:16611
+2020-01-20 13:27:53.781 [INF] CMGR: Server listening on [::]:16611
+2020-01-20 13:27:53.781 [DBG] CMGR: Failed to connect to reqid 1: no valid connect address
+2020-01-20 13:28:12.428 [INF] RPCS: New websocket client 192.168.160.6:52162
+2020-01-20 13:28:12.430 [DBG] RPCS: Websocket server received command <notifyBlocks> from 192.168.160.6:52162
+2020-01-20 13:28:12.431 [DBG] RPCS: Websocket server received command <notifyChainChanges> from 192.168.160.6:52162
+2020-01-20 13:28:12.444 [INF] RPCS: New websocket client 192.168.160.5:58130
+2020-01-20 13:28:12.445 [DBG] RPCS: Websocket server received command <notifyBlocks> from 192.168.160.5:58130
+2020-01-20 13:28:12.446 [DBG] RPCS: Websocket server received command <notifyChainChanges> from 192.168.160.5:58130
+2020-01-20 13:28:12.449 [DBG] RPCS: Websocket server received command <getBlocks> from 192.168.160.5:58130
+2020-01-20 13:28:12.457 [DBG] RPCS: Websocket server received command <getSubnetwork> from 192.168.160.5:58130
+2020-01-20 13:28:12.469 [DBG] RPCS: Websocket server received command <getBlocks> from 192.168.160.5:58130
+2020-01-20 13:28:12.471 [DBG] RPCS: Websocket server received command <getChainFromBlock> from 192.168.160.5:58130
