@@ -14,12 +14,12 @@ fi
 
 if [[ $* == *--cleanup* ]]
 then
-  set -- "--rm --no-run --no-build"
+	set -- "--rm --no-run --no-build"
 fi
 
 if [[ $* != *--no-build* ]]
 then
- 	docker build -t "kaspad" "./kaspad" -f "./kaspad/docker/Dockerfile"
+	docker build -t "kaspad" "./kaspad" -f "./kaspad/docker/Dockerfile"
 	docker build -t "kasparovd" "./kasparov" -f "./kasparov/kasparovd/docker/Dockerfile"
 	docker build -t "kasparovsyncd" "./kasparov" -f "./kasparov/kasparovsyncd/docker/Dockerfile"
 fi
@@ -27,14 +27,14 @@ fi
 if [[ $* == *--rm* ]]
 then
 	docker-compose down
-  docker-compose rm -f -s -v
-  rm -rf data/
+	docker-compose rm -f -s -v
+	rm -rf data/
 fi
 
 if [[ $* != *--no-run* ]]
 then
 
-  mkdir -p data
+	mkdir -p data
 	cp -af ./rpc/. ./data
 	docker-compose up -d kaspad mysql rabbitmq 
 	sleep 8s
