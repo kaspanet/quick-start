@@ -7,19 +7,19 @@ services:
       - './data/kaspad/:/root/data'
     command:
       - '/app/kaspad'
-      - '--devnet'
+      - '--testnet'
       - '--addrindex'
       - '--acceptanceindex'
-      - '--miningaddr=kaspatest:qrgufg4qzfqacfzrf6xvx46aqedr5nke3q7raa09nc'
       - '--rpcuser=user'
       - '--rpcpass=pass'
-      - '--rpclisten=kaspad:16610'
+      - '--rpclisten=kaspad:16210'
       - '--rpccert=/root/.kaspad/rpc.cert'
       - '--rpckey=/root/.kaspad/rpc.key'
       - '--datadir=/root/data'
       - '--debuglevel=debug'
+      - '--dnsseed=testnet-dnsseed.kas.pa'
     ports:
-      - '16610:16610'
+      - '16210:16210'
     user: root
     restart: always
 
