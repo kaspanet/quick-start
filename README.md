@@ -18,11 +18,8 @@ Use git to clone the quick-start repository:
 ```
 $ git clone --recurse-submodules https://github.com/meanjs/mean.git meanjs
 ```
-### Pulling dependent git submodules
-```
-$ git submodule update --init --recursive
-```
-Start (build docker images and run)
+### Run
+(build docker images and run)
 ```
 $ cd quick-start
 $ ./run.sh
